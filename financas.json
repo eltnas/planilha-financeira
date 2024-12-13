@@ -1,0 +1,102 @@
+{
+    "entradas": [
+        {
+            "valor": 70.0,
+            "categoria": "Dobra",
+            "descricao": "Pagamento de Dobra",
+            "data": "2024-12-08 23:31:51"
+        },
+        {
+            "valor": 70.0,
+            "categoria": "Dobra",
+            "descricao": "Pagamento de Dobra",
+            "data": "2024-12-08 23:32:09"
+        },
+        {
+            "valor": 50.0,
+            "categoria": "Betano",
+            "descricao": "Apostas ganhas",
+            "data": "2024-12-08 23:32:25"
+        },
+        {
+            "valor": 49.9,
+            "categoria": "Geral",
+            "descricao": "Reembolso",
+            "data": "2024-12-08 23:33:15"
+        },
+        {
+            "valor": 2132.68,
+            "categoria": "Salario",
+            "descricao": "Salario",
+            "data": "2024-12-08 23:33:35"
+        },
+        {
+            "valor": 70.0,
+            "categoria": "Dobra",
+            "descricao": "Pagamento de dobra",
+            "data": "2024-12-08 23:33:53"
+        }
+    ],
+    "saidas": [
+        {
+            "valor": 49.9,
+            "categoria": "Telefone",
+            "descricao": "Plano Tim",
+            "data": "2024-12-08 23:35:01"
+        },
+        {
+            "valor": 104.9,
+            "categoria": "Alimentação",
+            "descricao": "Ração para cachorros",
+            "data": "2024-12-08 23:35:22"
+        },
+        {
+            "valor": 20.0,
+            "categoria": "Alimentação",
+            "descricao": "Glecia",
+            "data": "2024-12-08 23:35:51"
+        },
+        {
+            "valor": 20.0,
+            "categoria": "Telefone",
+            "descricao": "Credito claro",
+            "data": "2024-12-08 23:36:11"
+        },
+        {
+            "valor": 22.0,
+            "categoria": "Lazer",
+            "descricao": "Passeio Glecia",
+            "data": "2024-12-08 23:36:28"
+        },
+        {
+            "valor": 24.0,
+            "categoria": "Lazer",
+            "descricao": "Passeio Elton",
+            "data": "2024-12-08 23:36:50"
+        },
+        {
+            "valor": 44.43,
+            "categoria": "Saude",
+            "descricao": "Farmacia",
+            "data": "2024-12-08 23:37:20"
+        },
+        {
+            "valor": 104.6,
+            "categoria": "Lazer",
+            "descricao": "Aniversario sogra",
+            "data": "2024-12-08 23:37:54"
+        },
+        {
+            "valor": 120.0,
+            "categoria": "Mercado",
+            "descricao": "Compras em Mercado",
+            "data": "2024-12-08 23:38:13"
+        },
+        {
+            "valor": 500.0,
+            "categoria": "Geral",
+            "descricao": "Compra de um Celular",
+            "data": "2024-12-08 23:38:30"
+        }
+    ]
+}

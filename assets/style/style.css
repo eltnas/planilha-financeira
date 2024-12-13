@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url("../img/background-dinheiro.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.opaco {
+  width: 100%;
+  height: calc(100% - 3rem);
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -100;
+}
+
+header {
+  width: 100%;
+  height: 3rem;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header navbar {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header navbar ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header navbar ul li {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header navbar ul li span {
+  font-size: 1.3em;
+}
+header navbar ul #facebook:hover {
+  background-color: #145dbf;
+  color: #FFFFFF;
+  border: 0.5px solid #0F4C9E;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+header navbar ul #twiter:hover {
+  background-color: #1A91DA;
+  color: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+header navbar ul #instagram:hover {
+  background-image: linear-gradient(45deg, #FF9E45, #E1306C, #833AB4);
+  color: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+header navbar ul #github:hover {
+  background-color: #2D333B;
+  color: #FFFFFF;
+  border-color: #57606A;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+header navbar ul #pessoal:hover {
+  background: linear-gradient(45deg, #357ABD, #7D3AC1);
+  color: #FFFFFF;
+  border-color: #7D3AC1;
+  box-shadow: 0px 4px 12px rgba(125, 58, 193, 0.5);
+}
+
+.bodyPage {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 375px;
+  margin: 4rem auto;
+  background-color: #FFFFFF;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bodyPage .topPage {
+  width: 100%;
+  height: 4rem;
+  padding: 15px 0;
+  font-size: 1.8em;
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #F5F5F5;
+}
+.bodyPage .finDados {
+  width: 90%;
+  height: 40px;
+  margin: 10px auto;
+}
+.bodyPage .finDados form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bodyPage .finDados form input[type=text], .bodyPage .finDados form input[type=date] {
+  height: 30px;
+  border-radius: 10px;
+  font-size: 1.4em;
+  padding: 0.2rem 1rem;
+}
+.bodyPage .finDados form select {
+  height: 30px;
+  width: 10rem;
+  border-radius: 10px;
+  font-size: 1.4em;
+  padding: 0.2rem 1rem;
+}
+.bodyPage .finDados form input[type=button] {
+  height: 30px;
+  width: 100px;
+  font-size: 1.3em;
+  border-radius: 10px;
+  background-color: #228B22;
+  color: #F5F5F5;
+}
+.bodyPage .finDados form input[type=button]:hover {
+  background-color: #F5F5F5;
+  color: #228B22;
+}
+.bodyPage .finDados form #movId {
+  width: 6rem;
+}
+.bodyPage .finDados form #movdata {
+  width: 9vw;
+}
+.bodyPage .finDados form #movNome {
+  width: 20rem;
+}
+.bodyPage .finDados form #movValor {
+  width: 10rem;
+}
+.bodyPage .tabelaDados {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bodyPage .tabelaDados h3 {
+  font-size: 1.3em;
+  margin: 5px 0 1rem 0;
+}
+.bodyPage .tabelaDados table {
+  width: calc(100% - 10px);
+  margin: 10px auto;
+}
+.bodyPage .tabelaDados table tr {
+  width: 100%;
+  min-width: 375px;
+  height: 2rem;
+}
+.bodyPage .tabelaDados table .tbData {
+  width: 10%;
+}
+.bodyPage .tabelaDados table .tbDesc {
+  width: 50%;
+}
+.bodyPage .tabelaDados table .tbValor {
+  width: 15%;
+}
+.bodyPage .tabelaDados table .tbPorc {
+  width: 5%;
+}
+.bodyPage .tabelaDados table .tbMenu {
+  width: 15%;
+}
+.bodyPage #finEntradas {
+  border: 1px solid rgba(34, 139, 34, 0.4);
+  background-color: rgba(34, 139, 34, 0.1);
+}
+.bodyPage #finEntradas table tr th {
+  background-color: rgba(34, 139, 34, 0.5);
+  border: 1px solid rgba(34, 139, 34, 0.8);
+}
+.bodyPage #finEntradas table tr td {
+  background-color: rgba(34, 139, 34, 0.2);
+  border: 1px solid rgba(34, 139, 34, 0.8);
+}
+.bodyPage #finDespesasFixas {
+  border: 1px solid rgba(255, 165, 0, 0.4);
+  background-color: rgba(255, 165, 0, 0.1);
+}
+.bodyPage #finDespesasFixas table tr th {
+  background-color: rgba(255, 165, 0, 0.5);
+  border: 1px solid rgba(255, 165, 0, 0.8);
+}
+.bodyPage #finDespesasFixas table tr td {
+  background-color: rgba(255, 165, 0, 0.2);
+  border: 1px solid rgba(255, 165, 0, 0.8);
+}
+.bodyPage #finDespesasVariaveis {
+  border: 1px solid rgba(255, 165, 0, 0.4);
+  background-color: rgba(255, 165, 0, 0.1);
+}
+.bodyPage #finDespesasVariaveis table tr th {
+  background-color: rgba(255, 165, 0, 0.5);
+  border: 1px solid rgba(255, 165, 0, 0.8);
+}
+.bodyPage #finDespesasVariaveis table tr td {
+  background-color: rgba(255, 165, 0, 0.2);
+  border: 1px solid rgba(255, 165, 0, 0.8);
+}
+
+footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background-color: #F5F5F5;
+  display: grid;
+  place-items: center;
+}
+footer p {
+  font-size: 1.3em;
+  color: #282c30;
+}
+footer p a {
+  text-decoration: none;
+  color: #282c30;
+}
+
+/*# sourceMappingURL=style.css.map */
