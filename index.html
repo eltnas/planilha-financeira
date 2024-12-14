@@ -33,15 +33,15 @@
 
     <section class="finDados">
         <form method="">
-            <input type="date" id="movdata" name="movdata" placeholder="Id da Movimentação" />
-            <input type="text" id="movNome" name="movNome" placeholder="Descrição" />
-            <select id="tipo">
+            <input type="date" class="mov" id="movdata" name="movdata" placeholder="Id da Movimentação" />
+            <input type="text" class="mov" id="movNome" name="movNome" placeholder="Descrição" />
+            <select id="tipo" class="mov">
                 <option value="">Tipo</option>
                 <option value="entrada">Entrada</option>
                 <option value="fixas">Despesa (Fixa)</option>
                 <option value="dsVariavel">Despesa (Variaveis)</option>
             </select>
-            <input type="text" id="movValor" name="movValor" placeholder="Valor" />
+            <input type="number" class="mov" id="movValor" name="movValor" step="0.01" min="0.01" placeholder="Valor" />
 
             <input type="button" id="btnGrava" name="btnGrava" value="Gravar" onclick="gravaDados()">
             <input type="button" id="btnLimpa" name="btnLimpa" value="Limpar">
@@ -50,61 +50,56 @@
     </section>
     <section id="finEntradas" class="tabelaDados">
         <h3>Entradas</h3>
-        <table border="">
-            <tr>
-                <th class="tbData">Data</th>
-                <th class="tbDesc">Descrição</th>
-                <th class="tbValor">Valor</th>
-                <th class="tbPorc">%</th>
-                <th class="tbMenu">Menu</th>
-            </tr>
-            <tr>
-                <td class="tbData">01/12/2024</td>
-                <td class="tbDesc">Salario</td>
-                <td class="tbValor">R$ 2.000,00</td>
-                <td class="tbPorc">100%</td>
-                <td class="tbMenu">X V</td>
-            </tr>
+        <table id="dadosEnt">
+            <thead>
+                <tr class="tbTitle">
+                    <th class="tbData">Data</th>
+                    <th class="tbDesc">Descrição</th>
+                    <th class="tbValor">Valor</th>
+                    <th class="tbPorc">%</th>
+                    <th class="tbMenu">Menu</th>
+                </tr>
+            </thead>
+            <tbody class="tbDados">
+
+
+            </tbody>
+
+
         </table>
     </section>
 
     <section id="finDespesasFixas" class="tabelaDados">
         <h3>Despesas Fixas</h3>
-        <table border=".5">
-            <tr>
+        <table id="dadosFix">
+            <tr class="tbTitle">
                 <th class="tbData">Data</th>
                 <th class="tbDesc">Descrição</th>
                 <th class="tbValor">Valor</th>
                 <th class="tbPorc">%</th>
                 <th class="tbMenu">Menu</th>
             </tr>
-            <tr>
-                <td class="tbData">01/12/2024</td>
-                <td class="tbDesc">Salario</td>
-                <td class="tbValor">R$ 2.000,00</td>
-                <td class="tbPorc">100%</td>
-                <td class="tbMenu">X V</td>
-            </tr>
+            <tbody class="tbDados">
+
+
+            </tbody>
         </table>
     </section>
 
     <section id="finDespesasVariaveis" class="tabelaDados">
         <h3>Despesas Variaveis</h3>
-        <table border=".5">
-            <tr>
+        <table id="dadosVar">
+            <tr class="tbTitle">
                 <th class="tbData">Data</th>
                 <th class="tbDesc">Descrição</th>
                 <th class="tbValor">Valor</th>
                 <th class="tbPorc">%</th>
                 <th class="tbMenu">Menu</th>
             </tr>
-            <tr>
-                <td class="tbData">01/12/2024</td>
-                <td class="tbDesc">Salario</td>
-                <td class="tbValor">R$ 2.000,00</td>
-                <td class="tbPorc">100%</td>
-                <td class="tbMenu">X V</td>
-            </tr>
+            <tbody class="tbDados">
+
+
+            </tbody>
         </table>
     </section>
 </section>

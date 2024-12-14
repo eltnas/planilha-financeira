@@ -107,17 +107,19 @@ header navbar ul #pessoal:hover {
 }
 .bodyPage .finDados {
   width: 90%;
-  height: 40px;
+  /* height: 40px; */
   margin: 10px auto;
 }
+
 .bodyPage .finDados form {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
-.bodyPage .finDados form input[type=text], .bodyPage .finDados form input[type=date] {
+.bodyPage .finDados form input[type=text], .bodyPage .finDados form input[type=date], .bodyPage .finDados form input[type=number] {
   height: 30px;
   border-radius: 10px;
   font-size: 1.4em;
@@ -189,6 +191,26 @@ header navbar ul #pessoal:hover {
 }
 .bodyPage .tabelaDados table .tbMenu {
   width: 15%;
+  min-width: 7rem;
+}
+.bodyPage .tabelaDados table .tbMenu button {
+  width: 3rem;
+  height: 2rem;
+  margin: 0 1rem;
+}
+.bodyPage .tabelaDados table .tbMenu .close {
+  background-color: #FF0000;
+}
+.bodyPage .tabelaDados table .tbMenu .close:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+  color: #FF0000;
+}
+.bodyPage .tabelaDados table .tbMenu .edit {
+  background-color: #22bc24;
+}
+.bodyPage .tabelaDados table .tbMenu .edit:hover {
+  background-color: rgba(34, 188, 36, 0.8);
+  color: #22bc24;
 }
 .bodyPage #finEntradas {
   border: 1px solid rgba(34, 139, 34, 0.4);
