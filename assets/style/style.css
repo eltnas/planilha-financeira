@@ -107,17 +107,15 @@ header navbar ul #pessoal:hover {
 }
 .bodyPage .finDados {
   width: 90%;
-  /* height: 40px; */
+  height: 40px;
   margin: 10px auto;
 }
-
 .bodyPage .finDados form {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 .bodyPage .finDados form input[type=text], .bodyPage .finDados form input[type=date], .bodyPage .finDados form input[type=number] {
   height: 30px;
@@ -172,43 +170,77 @@ header navbar ul #pessoal:hover {
   width: calc(100% - 10px);
   margin: 10px auto;
 }
-.bodyPage .tabelaDados table tr {
+.bodyPage .tabelaDados table thead {
+  width: 100%;
+}
+.bodyPage .tabelaDados table thead tr {
   width: 100%;
   min-width: 375px;
   height: 2rem;
 }
-.bodyPage .tabelaDados table .tbData {
+.bodyPage .tabelaDados table thead .tbData {
   width: 10%;
 }
-.bodyPage .tabelaDados table .tbDesc {
+.bodyPage .tabelaDados table thead .tbDesc {
   width: 50%;
 }
-.bodyPage .tabelaDados table .tbValor {
+.bodyPage .tabelaDados table thead .tbValor {
   width: 15%;
 }
-.bodyPage .tabelaDados table .tbPorc {
+.bodyPage .tabelaDados table thead .tbPorc {
   width: 5%;
 }
-.bodyPage .tabelaDados table .tbMenu {
+.bodyPage .tabelaDados table thead .tbMenu {
   width: 15%;
-  min-width: 7rem;
 }
-.bodyPage .tabelaDados table .tbMenu button {
+.bodyPage .tabelaDados table tbody {
+  width: 100%;
+}
+.bodyPage .tabelaDados table tbody tr {
+  width: 100%;
+  min-width: 375px;
+  height: 2rem;
+}
+.bodyPage .tabelaDados table tbody .tbData {
+  width: 10%;
+}
+.bodyPage .tabelaDados table tbody .tbData input {
+  width: 90%;
+}
+.bodyPage .tabelaDados table tbody .tbDesc {
+  width: 50%;
+}
+.bodyPage .tabelaDados table tbody .tbDesc input {
+  width: 90%;
+}
+.bodyPage .tabelaDados table tbody .tbValor {
+  width: 15%;
+}
+.bodyPage .tabelaDados table tbody .tbValor input {
+  width: 90%;
+}
+.bodyPage .tabelaDados table tbody .tbPorc {
+  width: 5%;
+}
+.bodyPage .tabelaDados table tbody .tbMenu {
+  width: 15%;
+}
+.bodyPage .tabelaDados table tbody .tbMenu button {
   width: 3rem;
   height: 2rem;
   margin: 0 1rem;
 }
-.bodyPage .tabelaDados table .tbMenu .close {
+.bodyPage .tabelaDados table tbody .tbMenu .close {
   background-color: #FF0000;
 }
-.bodyPage .tabelaDados table .tbMenu .close:hover {
+.bodyPage .tabelaDados table tbody .tbMenu .close:hover {
   background-color: rgba(255, 0, 0, 0.8);
   color: #FF0000;
 }
-.bodyPage .tabelaDados table .tbMenu .edit {
+.bodyPage .tabelaDados table tbody .tbMenu .edit {
   background-color: #22bc24;
 }
-.bodyPage .tabelaDados table .tbMenu .edit:hover {
+.bodyPage .tabelaDados table tbody .tbMenu .edit:hover {
   background-color: rgba(34, 188, 36, 0.8);
   color: #22bc24;
 }

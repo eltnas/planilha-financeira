@@ -1,116 +1,126 @@
-let btnGravaDados = document.getElementById('btnGrava');
-let Dados = document.getElementsByClassName('mov');
-let arrayEntradas = [[]];
-let arrayDespFixas = [[]];
-let arrayDespVariaveis = [[]];
-let tipo = [[]];
+// Função para calcular as porcentagens
+function calcularPorcentagens(tabela) {
+    let linhas = tabela.querySelectorAll("tbody tr");
+    let total = 0;
 
-// Função para calcular a porcentagem
-function valorPorc(valores, tipo) {
-    // Calcula o valor total de todos os valores
-    let valorTotal = tipo.reduce((soma, item) => soma + parseFloat(item[2] || 0), 0);
-    valorTotal += parseFloat(valores);
-    let porc = ((valores / valorTotal) * 100).toFixed(2);  // Calcula a porcentagem
-    return porc.toString() + "%";
+    // Calcula o total dos valores
+    linhas.forEach(linha => {
+        let valor = parseFloat(linha.querySelector(".tbValor").textContent) || 0;
+        total += valor;
+    });
+
+    // Atualiza a porcentagem para cada linha
+    linhas.forEach(linha => {
+        let valor = parseFloat(linha.querySelector(".tbValor").textContent) || 0;
+        let porcentagem = total > 0 ? ((valor / total) * 100).toFixed(2) : 0;
+        linha.querySelector(".tbPorc").textContent = `${porcentagem}%`;
+    });
 }
 
-// Função para atualizar todas as porcentagens
-function atualizarPorcentagens() {
-    let tabela = document.getElementById('tabelaDados').getElementsByTagName('tbody')[0];
-    let linhas = tabela.rows;
+// Função para adicionar os dados
+function gravaDados() {
+    // Obtendo os dados do formulário
+    let data = document.getElementById("movdata").value;
+    let descricao = document.getElementById("movNome").value;
+    let tipo = document.getElementById("tipo").value;
+    let valor = parseFloat(document.getElementById("movValor").value) || 0;
 
-    // Recalcula as porcentagens para todas as linhas
-    for (let i = 0; i < linhas.length; i++) {
-        let valor = parseFloat(linhas[i].cells[2].textContent);  // Obtém o valor da coluna Valor
-        let todasLinhas = [];
-        for (let j = 0; j < linhas.length; j++) {
-            todasLinhas.push([linhas[j].cells[2].textContent]);
-        }
-        let porc = valorPorc(valor, todasLinhas);  // Calcula a porcentagem para cada linha
-        linhas[i].cells[3].textContent = porc;  // Atualiza a célula de porcentagem
-    }
-}
-
-// Função para gravar dados
-function gravaDados(tipo, tab) {
-    let id = tipo.length;
-    let valores = parseFloat(Dados[3].value); // Certifique-se de acessar o valor corretamente
-
-    let entraDados = [
-        new Date().toLocaleDateString('pt-BR'), // Data atual
-        Dados[1].value, // Descrição
-        valores, // Valor
-        valorPorc(valores, tipo) // Porcentagem calculada
-    ];
-
-    tipo.push(entraDados); // Adiciona os dados ao tipo
-    console.log(`Dados adicionados com ID ${id}:`, entraDados);
-    console.log("Estado atual de 'tipo':", tipo);
-    console.log(tab.id);
-
-    // Acessa a tabela correta pelo ID
-    let tabela = document.getElementById(tab.id);
-    if (!tabela) {
-        console.error('Tabela com ID ' + tab + ' não encontrada!');
+    if (!data || !descricao || !tipo || valor <= 0) {
+        alert("Por favor, preencha todos os campos corretamente!");
         return;
     }
 
-    let tbody = tabela.getElementsByClassName('tbDados')[0];
-    if (!tbody) {
-        console.error('Não foi possível encontrar <tbody> na tabela com ID ' + tab);
-        return;
+    // Determina a tabela de destino
+    let tabelaDestino;
+    if (tipo === "entrada") {
+        tabelaDestino = document.getElementById("dadosEnt");
+    } else if (tipo === "fixas") {
+        tabelaDestino = document.getElementById("dadosFix");
+    } else if (tipo === "dsVariavel") {
+        tabelaDestino = document.getElementById("dadosVar");
     }
 
-    // Cria uma nova linha na tabela
-    let novaLinha = tbody.insertRow();
+    // Criação de uma nova linha
+    let novaLinha = document.createElement("tr");
 
-    // Preenche as células da nova linha com os dados
     novaLinha.innerHTML = `
-        <tr class="tbData">
-            <td class="tbData">${entraDados[0]}</td>
-            <td class="tbDesc">${entraDados[1]}</td>
-            <td class="tbValor">R$ ${entraDados[2].toFixed(2)}</td>
-            <td class="tbPorc">${entraDados[3]}</td>
-            <td class="tbMenu">
-                <button class="edit"><span class="icon-pencil"></span></button>
-                <button class="close"><span class="icon-close"></span></button>
-            </td>
-        </tr>
+        <td class="tbData">${data}</td>
+        <td class="tbDesc">${descricao}</td>
+        <td class="tbValor">${valor.toFixed(2)}</td>
+        <td class="tbPorc">0%</td>
+        <td class="tbMenu">
+            <button class="close" onclick="removerLinha(this)"><span class="icon-close"></span></button>
+            <button class="edit" onclick="editarLinha(this)"><span class="icon-close"></span></button>
+            
+        </td>
     `;
 
-    console.log(novaLinha);
+    // Adiciona a linha à tabela correspondente
+    tabelaDestino.querySelector("tbody").appendChild(novaLinha);
 
-    // Atualiza as porcentagens para todas as linhas
-    atualizarPorcentagens();
+    // Atualiza as porcentagens
+    calcularPorcentagens(tabelaDestino);
+
+    // Limpa os campos do formulário
+    limpaDados();
 }
 
-// Evento para gravar os dados
-btnGravaDados.addEventListener('click', () => {
-        // Verifica se o tipo de movimentação foi selecionado
-    if (!Dados[2].value) {
-        alert('Selecione um tipo de Movimentação!');
+// Função para limpar os campos do formulário
+function limpaDados() {
+    document.getElementById("movdata").value = "";
+    document.getElementById("movNome").value = "";
+    document.getElementById("tipo").value = "";
+    document.getElementById("movValor").value = "";
+}
+
+// Função para remover uma linha
+function removerLinha(botao) {
+    let linha = botao.closest("tr");
+    let tabela = linha.closest("table");
+    linha.remove();
+
+    // Atualiza as porcentagens após a remoção
+    calcularPorcentagens(tabela);
+}
+
+// Função para editar linha
+function editarLinha(botao) {
+    // Obter a linha onde o botão foi clicado
+    let linha = botao.closest("tr");
+
+    // Verificar se a linha está em modo de edição
+    if (linha.hasAttribute("data-editing")) {
+        // Salvar os novos valores e sair do modo de edição
+        let inputs = linha.querySelectorAll("input");
+        inputs.forEach(input => {
+            let td = input.closest("td");
+            td.textContent = input.value;
+        });
+
+        // Remover o atributo de edição
+        linha.removeAttribute("data-editing");
+
+        // Alterar o ícone do botão para "Editar"
+        botao.innerHTML = '<span class="icon-pencil"></span>';
+
+        // Atualizar as porcentagens
+        let tabela = linha.closest("table");
+        calcularPorcentagens(tabela);
+    } else {
+        // Entrar no modo de edição
+        let colunasEditaveis = ["tbData", "tbDesc", "tbValor"]; // Colunas editáveis
+        linha.setAttribute("data-editing", "true");
+
+        colunasEditaveis.forEach(classe => {
+            let td = linha.querySelector(`.${classe}`);
+            if (td) {
+                let valorAtual = td.textContent;
+                td.innerHTML = `<input type="text" value="${valorAtual}" />`;
+            }
+        });
+
+        // Alterar o ícone do botão para "Salvar"
+        botao.innerHTML = '<span class="icon-check"></span>';
     }
-    else if(!Dados[0].value){
-        alert('Selecione uma Data!');
-    }
-    else if(!Dados[1].value){
-        alert('Insira uma descrição!');
-    }
-    else if(!Dados[3].value){
-        alert('Insira o valor da movimentação!');
-    }
-    else {
-        // Se for 'entrada', grava no arrayEntradas
-        if (Dados[2].value === 'entrada') {
-            gravaDados(arrayEntradas, dadosEnt);
-        }
-        // Se for 'fixas', mostra um alerta
-        else if (Dados[2].value === 'fixas') {
-            gravaDados(arrayDespFixas, dadosFix);
-        }
-        // Se for 'dsVariavel', mostra um alerta
-        else if (Dados[2].value === 'dsVariavel') {
-            gravaDados(arrayDespVariaveis, dadosVar);
-        }
-    }
-});
+}
+

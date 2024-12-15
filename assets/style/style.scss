@@ -188,51 +188,94 @@ header{
       width: calc(100% - 10px);
       margin: 10px auto;
 
-      tr{
+      thead{
         width: 100%;
-        min-width: 375px;
-        height: 2rem;
-      }
 
-      .tbData{
-        width: 10%;
-      }
-      .tbDesc{
-        width: 50%;
-      }
-      .tbValor{
-        width: 15%;
-      }
-      .tbPorc{
-        width: 5%;
-      }
-      .tbMenu{
-        width: 15%;
-
-        button{
-          width: 3rem;
+        tr{
+          width: 100%;
+          min-width: 375px;
           height: 2rem;
-          margin: 0 1rem;
         }
+  
+        .tbData{
+          width: 10%;
+        }
+        .tbDesc{
+          width: 50%;
+        }
+        .tbValor{
+          width: 15%;
+        }
+        .tbPorc{
+          width: 5%;
+        }
+        .tbMenu{
+          width: 15%;
+        }
+      }
 
-        .close{
-          background-color: #FF0000;
+      tbody{
+        width: 100%;
 
-          &:hover{
-            background-color: rgba(#FF0000, .8);
-            color: #FF0000;
+        tr{
+          width: 100%;
+          min-width: 375px;
+          height: 2rem;
+        }
+  
+        .tbData{
+          width: 10%;
+
+          input{
+            width: 90%;
           }
         }
+        .tbDesc{
+          width: 50%;
 
-        .edit{
-          background-color: #22bc24;
+          input{
+            width: 90%;
+          }
+        }
+        .tbValor{
+          width: 15%;
 
-          &:hover{
-            background-color: rgba(#22bc24, .8);
-            color: #22bc24;
+          input{
+            width: 90%;
+          }
+        }
+        .tbPorc{
+          width: 5%;
+        }
+        .tbMenu{
+          width: 15%;
+  
+          button{
+            width: 3rem;
+            height: 2rem;
+            margin: 0 1rem;
+          }
+  
+          .close{
+            background-color: #FF0000;
+  
+            &:hover{
+              background-color: rgba(#FF0000, .8);
+              color: #FF0000;
+            }
+          }
+  
+          .edit{
+            background-color: #22bc24;
+  
+            &:hover{
+              background-color: rgba(#22bc24, .8);
+              color: #22bc24;
+            }
           }
         }
       }
+
     }
   }
 
